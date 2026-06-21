@@ -1,0 +1,304 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id String @id @default(cuid())
+
+  email               String   @unique
+  name                String?
+  lastName            String?
+  image               String?
+  telegramId          String?
+  telegramUsername    String?
+  telegramPhoneNumber String?
+  emailVerified       Boolean  @default(false)
+  phone               String?
+  company             Company?
+
+  bookings Booking[]
+  reviews  Review[]
+
+  sessions Session[]
+  accounts Account[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("user")
+}
+
+model Company {
+  id String @id @default(cuid())
+
+  name        String
+  slug        String  @unique
+  description String?
+  image       String?
+  address     String
+  phone       String?
+  telegram    String?
+  instagram   String?
+  vkontakte   String?
+
+  ownerId String @unique
+  owner   User   @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+
+  staff    Staff[]
+  reviews  Review[]
+  services Service[]
+  bookings Booking[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([categoryId])
+  @@map("company")
+}
+
+model Category {
+  id String @id //seed.ts
+
+  name  String
+  slug  String @unique
+  image String
+
+  companies Company[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("category")
+}
+
+model Staff {
+  id String @id @default(cuid())
+
+  name        String
+  occupation  String
+  description String?
+  image       String?
+  startTime   String  @default("09:00")
+  endTime     String  @default("18:00")
+
+  companyId String
+  company   Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  services       Service[]
+  serviceStaffs  ServiceStaff[]
+  bookings       Booking[]
+  reviews        Review[]
+  staffSchedules StaffSchedule[]
+  works          StaffWork[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([companyId])
+  @@map("staff")
+}
+
+model StaffWork {
+  id String @id @default(cuid())
+
+  image String
+
+  title       String?
+  description String?
+
+  staffId String
+  staff   Staff  @relation(fields: [staffId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@map("staff_work")
+}
+
+model StaffSchedule {
+  id String @id @default(cuid())
+
+  date DateTime @db.Date
+
+  startTime String?
+  endTime   String?
+
+  isDayOff Boolean @default(false)
+
+  staffId String
+  staff   Staff  @relation(fields: [staffId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([staffId, date])
+  @@map("staff_schedule")
+}
+
+model Service {
+  id String @id @default(cuid())
+
+  title       String
+  description String?
+
+  price Int
+
+  duration Int // minutes
+
+  companyId String
+  company   Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  staff         Staff[]
+  serviceStaffs ServiceStaff[]
+  bookings      Booking[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("service")
+}
+
+model ServiceStaff {
+  serviceId String
+  service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  staffId String
+  staff   Staff  @relation(fields: [staffId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@id([serviceId, staffId])
+  @@map("service_staff")
+}
+
+model Booking {
+  id String @id @default(cuid())
+
+  startAt DateTime
+  endAt   DateTime
+  price   Int
+  name    String
+  phone   String
+
+  status BookingStatus @default(PENDING)
+
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  companyId String
+  company   Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  staffId String
+  staff   Staff  @relation(fields: [staffId], references: [id], onDelete: Cascade)
+
+  serviceId String
+  service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([staffId])
+  @@index([serviceId])
+  @@map("booking")
+}
+
+model Review {
+  id String @id @default(cuid())
+
+  rating Int
+  text   String
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  companyId String
+  company   Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  staffId String
+  staff   Staff  @relation(fields: [staffId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([companyId])
+  @@index([staffId])
+  @@map("review")
+}
+
+model Session {
+  id String @id @default(cuid())
+
+  expiresAt DateTime
+  token     String   @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  ipAddress String?
+  userAgent String?
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("session")
+}
+
+model Account {
+  id String @id @default(cuid())
+
+  accountId  String
+  providerId String
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  accessToken      String?
+  refreshToken     String?
+  idToken          String?
+  telegramId       String?
+  telegramUsername String?
+
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+
+  scope    String?
+  password String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@map("account")
+}
+
+model Verification {
+  id String @id @default(cuid())
+
+  identifier String
+  value      String
+
+  expiresAt DateTime
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([identifier])
+  @@map("verification")
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}
