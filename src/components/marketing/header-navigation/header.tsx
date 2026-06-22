@@ -15,12 +15,33 @@ import { UntitledLogoMinimal } from '@/components/foundations/logo/untitledui-lo
 import { DropdownMenuSimple } from '@/components/marketing/header-navigation/dropdown-header-navigation';
 import { cx } from '@/utils/cx';
 import Link from 'next/link';
+import MenuUserSession from '@/components/menu-user-session';
 
 type HeaderNavItem = {
   label: string;
   href?: string;
   menu?: ReactNode;
 };
+
+type User = {
+  id: string;
+  email: string;
+  name: string | null;
+  lastName?: string;
+  telegramId?: string;
+  telegramUsername?: string;
+  telegramPhoneNumber?: string;
+  emailVerified?: boolean;
+  phone?: string;
+  image?: string | null;
+  company?: {
+    slug: string;
+  } | null;
+};
+
+type Company = {
+  slug: string;
+} | null;
 
 const headerNavItems: HeaderNavItem[] = [
   { label: 'Products', href: '/products', menu: <DropdownMenuSimple /> },
@@ -77,7 +98,7 @@ const MobileNavItem = (props: { className?: string; label: string; href?: string
   );
 };
 
-const MobileFooter = () => {
+const MobileFooter = ({ user }: { user?: User | null }) => {
   return (
     <div className='flex flex-col gap-8 border-t border-secondary px-4 py-6'>
       <div>
@@ -92,14 +113,24 @@ const MobileFooter = () => {
         </ul>
       </div>
       <div className='flex gap-3'>
-        <Link href='/sign-in'>
-          <Button color='secondary' size='lg'>
-            Log in
-          </Button>
-        </Link>
-        <Link href='/sign-up'>
-          <Button size='lg'>Sign up</Button>
-        </Link>
+        {user ? (
+          <div className='w-full'>
+            <MenuUserSession user={user} />
+          </div>
+        ) : (
+          <>
+            <Link href='/sign-in' className='flex-1'>
+              <Button color='secondary' size='lg' className='w-full'>
+                Log in
+              </Button>
+            </Link>
+            <Link href='/sign-up' className='flex-1'>
+              <Button size='lg' className='w-full'>
+                Sign up
+              </Button>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
@@ -110,9 +141,18 @@ interface HeaderProps {
   isFullWidth?: boolean;
   isFloating?: boolean;
   className?: string;
+  user?: User | null;
+  company?: Company;
 }
 
-export const Header = ({ items = headerNavItems, isFullWidth, isFloating, className }: HeaderProps) => {
+export const Header = ({ 
+  items = headerNavItems, 
+  isFullWidth, 
+  isFloating, 
+  className,
+  user,
+  company 
+}: HeaderProps) => {
   const headerRef = useRef<HTMLElement>(null);
 
   return (
@@ -193,18 +233,25 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
             </nav>
           </div>
 
-          <div className='hidden items-center gap-3 md:flex'>
-            <Link href='/sign-in'>
-              <Button color='secondary' size={isFloating ? 'md' : 'lg'}>
-                Log in
-              </Button>
-            </Link>
-            <Link href='/sign-up'>
-              <Button color='primary' size={isFloating ? 'md' : 'lg'}>
-                Sign up
-              </Button>
-            </Link>
-          </div>
+          {/* ✅ Desktop: MenuUserSession или кнопки входа */}
+          {user ? (
+            <div className='hidden items-center gap-3 md:flex'>
+              <MenuUserSession user={user} company={company} />
+            </div>
+          ) : (
+            <div className='hidden items-center gap-3 md:flex'>
+              <Link href='/sign-in'>
+                <Button color='secondary' size={isFloating ? 'md' : 'lg'}>
+                  Log in
+                </Button>
+              </Link>
+              <Link href='/sign-up'>
+                <Button color='primary' size={isFloating ? 'md' : 'lg'}>
+                  Sign up
+                </Button>
+              </Link>
+            </div>
+          )}
 
           {/* Mobile menu and menu trigger */}
           <AriaDialogTrigger>
@@ -259,7 +306,7 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                     )}
                   </ul>
 
-                  <MobileFooter />
+                  <MobileFooter user={user} />
                 </nav>
               </AriaDialog>
             </AriaPopover>

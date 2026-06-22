@@ -57,6 +57,7 @@ export const styles = sortCx({
         primary: {
             root: [
                 "bg-brand-solid text-white shadow-xs-skeuomorphic ring-1 ring-transparent ring-inset hover:bg-brand-solid_hover data-loading:bg-brand-solid_hover",
+                'outline-none! focus-visible:outline-none! focus-visible:ring-0!',
                 // Inner border gradient
                 "before:absolute before:inset-px before:border before:border-white/12 before:mask-b-from-0%",
                 // Icon styles

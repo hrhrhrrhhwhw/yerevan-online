@@ -5,6 +5,7 @@ import { Form } from '@/components/base/form/form';
 import { Input } from '@/components/base/input/input';
 import { SocialButton } from '../base/buttons/social-button';
 import Link from 'next/link';
+import { signUpAction } from '@/app/auth';
 
 export default function SignUp() {
   return (
@@ -26,10 +27,7 @@ export default function SignUp() {
         </div>
 
         <Form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const data = Object.fromEntries(new FormData(e.currentTarget));
-          }}
+          action={signUpAction}
           className='mx-auto mt-8 flex flex-col gap-8 md:mt-12 md:max-w-120'
         >
           <div className='flex flex-col gap-6'>
