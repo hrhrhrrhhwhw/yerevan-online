@@ -1,17 +1,20 @@
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
-import { redirect } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 
-export async function requireUser() {
+export async function sessionUser() {
   'use server';
   const session = await auth.api.getSession({
     headers: await headers(),
   });
-  console.log(session, 'session из функции');
 
   if (!session?.user) {
     redirect('/sign-in');
   }
 
-  return session.user;
+  if (session.session.userId !== session.user.id) {
+    return notFound();
+  }
+
+  return session?.user ?? null;
 }

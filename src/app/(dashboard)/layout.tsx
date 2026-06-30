@@ -1,12 +1,13 @@
-import { Header } from '@/components/marketing/header-navigation/header';
+import { Dashboard } from '@/components/dashboard';
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <main>
+    <main className='flex flex-col md:flex-row gap-2'>
+      <Dashboard />
       {children}
     </main>
   );

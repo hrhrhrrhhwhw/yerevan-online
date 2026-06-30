@@ -3,19 +3,14 @@
 import type { ReactNode } from 'react';
 import { useRef, useState } from 'react';
 import { ChevronDown } from '@untitledui/icons';
-import {
-  Button as AriaButton,
-  Dialog as AriaDialog,
-  DialogTrigger as AriaDialogTrigger,
-  Popover as AriaPopover,
-} from 'react-aria-components';
+import { Button as AriaButton, Dialog as AriaDialog, DialogTrigger as AriaDialogTrigger, Popover as AriaPopover } from 'react-aria-components';
 import { Button } from '@/components/base/buttons/button';
 import { UntitledLogo } from '@/components/foundations/logo/untitledui-logo';
 import { UntitledLogoMinimal } from '@/components/foundations/logo/untitledui-logo-minimal';
 import { DropdownMenuSimple } from '@/components/marketing/header-navigation/dropdown-header-navigation';
 import { cx } from '@/utils/cx';
 import Link from 'next/link';
-import MenuUserSession from '@/components/menu-user-session';
+import MenuUserSession from '@/app/features/user/components/menu-user-session';
 
 type HeaderNavItem = {
   label: string;
@@ -68,10 +63,7 @@ const MobileNavItem = (props: { className?: string; label: string; href?: string
   if (props.href) {
     return (
       <li>
-        <a
-          href={props.href}
-          className='flex items-center justify-between px-4 py-3 text-md font-semibold text-primary hover:bg-primary_hover'
-        >
+        <a href={props.href} className='flex items-center justify-between px-4 py-3 text-md font-semibold text-primary hover:bg-primary_hover'>
           {props.label}
         </a>
       </li>
@@ -80,18 +72,8 @@ const MobileNavItem = (props: { className?: string; label: string; href?: string
 
   return (
     <li className='flex flex-col gap-0.5'>
-      <button
-        aria-expanded={isOpen}
-        onClick={() => setIsOpen(!isOpen)}
-        className='flex w-full items-center justify-between px-4 py-3 text-md font-semibold text-primary hover:bg-primary_hover'
-      >
-        {props.label}{' '}
-        <ChevronDown
-          className={cx(
-            'size-4 stroke-[2.625px] text-fg-quaternary transition duration-100 ease-linear',
-            isOpen ? '-rotate-180' : 'rotate-0',
-          )}
-        />
+      <button aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} className='flex w-full items-center justify-between px-4 py-3 text-md font-semibold text-primary hover:bg-primary_hover'>
+        {props.label} <ChevronDown className={cx('size-4 stroke-[2.625px] text-fg-quaternary transition duration-100 ease-linear', isOpen ? '-rotate-180' : 'rotate-0')} />
       </button>
       {isOpen && <div>{props.children}</div>}
     </li>
@@ -145,14 +127,7 @@ interface HeaderProps {
   company?: Company;
 }
 
-export const Header = ({ 
-  items = headerNavItems, 
-  isFullWidth, 
-  isFloating, 
-  className,
-  user,
-  company 
-}: HeaderProps) => {
+export const Header = ({ items = headerNavItems, isFullWidth, isFloating, className, user, company }: HeaderProps) => {
   const headerRef = useRef<HTMLElement>(null);
 
   return (
@@ -166,16 +141,11 @@ export const Header = ({
       )}
     >
       <div className='flex size-full max-w-container flex-1 items-center pr-3 pl-4 md:px-8'>
-        <div
-          className={cx(
-            'flex w-full justify-between gap-4',
-            isFloating &&
-              'ring-secondary_alt md:rounded-2xl md:bg-primary md:py-3 md:pr-3 md:pl-4 md:shadow-xs md:ring-1',
-          )}
-        >
+        <div className={cx('flex w-full justify-between gap-4', isFloating && 'ring-secondary_alt md:rounded-2xl md:bg-primary md:py-3 md:pr-3 md:pl-4 md:shadow-xs md:ring-1')}>
           <div className='flex flex-1 items-center gap-5'>
-            <UntitledLogo className='h-8 md:max-lg:hidden' />
-            <UntitledLogoMinimal className='hidden h-8 md:inline-block lg:hidden' />
+            <Link href='/'>
+              <UntitledLogo className='h-8' />
+            </Link>
 
             {/* Desktop navigation */}
             <nav className='max-md:hidden'>
@@ -258,30 +228,12 @@ export const Header = ({
             <AriaButton
               aria-label='Toggle navigation menu'
               className={({ isFocusVisible, isHovered }) =>
-                cx(
-                  'group ml-auto cursor-pointer rounded-lg p-2 md:hidden',
-                  isHovered && 'bg-primary_hover',
-                  isFocusVisible && 'outline-2 outline-offset-2 outline-focus-ring',
-                )
+                cx('group ml-auto cursor-pointer rounded-lg p-2 md:hidden', isHovered && 'bg-primary_hover', isFocusVisible && 'outline-2 outline-offset-2 outline-focus-ring')
               }
             >
               <svg aria-hidden='true' width='24' height='24' viewBox='0 0 24 24' fill='none'>
-                <path
-                  className='hidden text-secondary group-aria-expanded:block'
-                  d='M18 6L6 18M6 6L18 18'
-                  stroke='currentColor'
-                  strokeWidth='2'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-                <path
-                  className='text-secondary group-aria-expanded:hidden'
-                  d='M3 12H21M3 6H21M3 18H21'
-                  stroke='currentColor'
-                  strokeWidth='2'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
+                <path className='hidden text-secondary group-aria-expanded:block' d='M18 6L6 18M6 6L18 18' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+                <path className='text-secondary group-aria-expanded:hidden' d='M3 12H21M3 6H21M3 18H21' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
               </svg>
             </AriaButton>
             <AriaPopover

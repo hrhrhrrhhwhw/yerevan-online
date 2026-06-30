@@ -20,7 +20,7 @@ export const TagAvatar = ({ src, alt, contrastBorder = true, className }: ImgHTM
     return (
         <div
             className={cx(
-                "relative inline-flex size-4 shrink-0 items-center justify-center overflow-hidden rounded-full bg-tertiary",
+                "relative inline-flex size-4 shrink-0 items-center justify-center overflow-hidden rounded-3xl bg-tertiary",
                 contrastBorder && "outline-[0.5px] -outline-offset-[0.5px] outline-black/16",
                 className,
             )}

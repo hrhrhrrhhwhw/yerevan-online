@@ -127,18 +127,15 @@ interface RatingBadgeProps extends HTMLAttributes<HTMLDivElement> {
 export const RatingBadge = ({ title = "Best Design Tool", subtitle = "2,000+ reviews", rating, theme = "dark", className, ...props }: RatingBadgeProps) => {
     return (
         <div {...props} className={cx("flex items-center -space-x-0.5", className)}>
-            <Wreath className={cx("shrink-0", theme === "light" && "text-fg-white")} />
 
             <div className="flex flex-col items-center gap-1">
                 <RatingStars rating={rating} className="gap-0.5" starClassName="size-4" />
 
                 <div className="text-center">
-                    <p className={cx("text-sm font-semibold", theme === "light" ? "text-primary_on-brand" : "text-primary")}>{title}</p>
                     <p className={cx("text-xs font-medium", theme === "light" ? "text-secondary_on-brand" : "text-secondary")}>{subtitle}</p>
                 </div>
             </div>
 
-            <Wreath className={cx("shrink-0 -scale-x-100", theme === "light" && "text-fg-white")} />
         </div>
     );
 };

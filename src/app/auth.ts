@@ -1,8 +1,8 @@
 'use server'
 
-import { auth } from '@/lib/auth'
 import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
+import { auth } from '../lib/auth'
 
 export async function signUpAction(formdata: FormData) {
   const name = formdata.get('name') as string
@@ -17,7 +17,7 @@ export async function signUpAction(formdata: FormData) {
     },
   })
 
-  redirect('/')
+  redirect('/dashboard/company')
 }
 
 export async function signInAction(formdata: FormData) {

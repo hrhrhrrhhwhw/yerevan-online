@@ -1,9 +1,12 @@
 import type { Viewport } from 'next';
-import { Mulish } from 'next/font/google';
+import { Mulish, Geist } from 'next/font/google';
 import { RouteProvider } from '@/providers/router-provider';
 import { Theme } from '@/providers/theme';
 import '@/styles/globals.css';
 import { cx } from '@/utils/cx';
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const mulish = Mulish({
   subsets: ['latin'],
@@ -22,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning className={cn("font-sans", geist.variable)}>
       <body className={cx(mulish.variable, 'bg-primary antialiased')}>
         <RouteProvider>
           <Theme>{children}</Theme>

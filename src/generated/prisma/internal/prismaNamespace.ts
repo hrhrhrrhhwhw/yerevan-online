@@ -1440,6 +1440,7 @@ export const CompanyScalarFieldEnum = {
   name: 'name',
   slug: 'slug',
   description: 'description',
+  workTime: 'workTime',
   image: 'image',
   address: 'address',
   phone: 'phone',
@@ -1457,9 +1458,10 @@ export type CompanyScalarFieldEnum = (typeof CompanyScalarFieldEnum)[keyof typeo
 
 export const CategoryScalarFieldEnum = {
   id: 'id',
-  name: 'name',
+  label: 'label',
   slug: 'slug',
   image: 'image',
+  color: 'color',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1557,7 +1559,6 @@ export const ReviewScalarFieldEnum = {
   text: 'text',
   userId: 'userId',
   companyId: 'companyId',
-  staffId: 'staffId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

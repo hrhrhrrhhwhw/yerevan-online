@@ -4,5 +4,4 @@ export const authClient = createAuthClient({
   fetchOptions: {
     credentials: 'include',
   },
-  // plugins: [telegramClient()],
 })

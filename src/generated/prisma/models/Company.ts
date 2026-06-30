@@ -29,6 +29,7 @@ export type CompanyMinAggregateOutputType = {
   name: string | null
   slug: string | null
   description: string | null
+  workTime: string | null
   image: string | null
   address: string | null
   phone: string | null
@@ -46,6 +47,7 @@ export type CompanyMaxAggregateOutputType = {
   name: string | null
   slug: string | null
   description: string | null
+  workTime: string | null
   image: string | null
   address: string | null
   phone: string | null
@@ -63,6 +65,7 @@ export type CompanyCountAggregateOutputType = {
   name: number
   slug: number
   description: number
+  workTime: number
   image: number
   address: number
   phone: number
@@ -82,6 +85,7 @@ export type CompanyMinAggregateInputType = {
   name?: true
   slug?: true
   description?: true
+  workTime?: true
   image?: true
   address?: true
   phone?: true
@@ -99,6 +103,7 @@ export type CompanyMaxAggregateInputType = {
   name?: true
   slug?: true
   description?: true
+  workTime?: true
   image?: true
   address?: true
   phone?: true
@@ -116,6 +121,7 @@ export type CompanyCountAggregateInputType = {
   name?: true
   slug?: true
   description?: true
+  workTime?: true
   image?: true
   address?: true
   phone?: true
@@ -206,6 +212,7 @@ export type CompanyGroupByOutputType = {
   name: string
   slug: string
   description: string | null
+  workTime: string
   image: string | null
   address: string
   phone: string | null
@@ -244,6 +251,7 @@ export type CompanyWhereInput = {
   name?: Prisma.StringFilter<"Company"> | string
   slug?: Prisma.StringFilter<"Company"> | string
   description?: Prisma.StringNullableFilter<"Company"> | string | null
+  workTime?: Prisma.StringFilter<"Company"> | string
   image?: Prisma.StringNullableFilter<"Company"> | string | null
   address?: Prisma.StringFilter<"Company"> | string
   phone?: Prisma.StringNullableFilter<"Company"> | string | null
@@ -267,6 +275,7 @@ export type CompanyOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
+  workTime?: Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -294,6 +303,7 @@ export type CompanyWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.CompanyWhereInput | Prisma.CompanyWhereInput[]
   name?: Prisma.StringFilter<"Company"> | string
   description?: Prisma.StringNullableFilter<"Company"> | string | null
+  workTime?: Prisma.StringFilter<"Company"> | string
   image?: Prisma.StringNullableFilter<"Company"> | string | null
   address?: Prisma.StringFilter<"Company"> | string
   phone?: Prisma.StringNullableFilter<"Company"> | string | null
@@ -316,6 +326,7 @@ export type CompanyOrderByWithAggregationInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
+  workTime?: Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -339,6 +350,7 @@ export type CompanyScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"Company"> | string
   slug?: Prisma.StringWithAggregatesFilter<"Company"> | string
   description?: Prisma.StringNullableWithAggregatesFilter<"Company"> | string | null
+  workTime?: Prisma.StringWithAggregatesFilter<"Company"> | string
   image?: Prisma.StringNullableWithAggregatesFilter<"Company"> | string | null
   address?: Prisma.StringWithAggregatesFilter<"Company"> | string
   phone?: Prisma.StringNullableWithAggregatesFilter<"Company"> | string | null
@@ -356,6 +368,7 @@ export type CompanyCreateInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -377,6 +390,7 @@ export type CompanyUncheckedCreateInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -398,6 +412,7 @@ export type CompanyUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -419,6 +434,7 @@ export type CompanyUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -440,6 +456,7 @@ export type CompanyCreateManyInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -457,6 +474,7 @@ export type CompanyUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -472,6 +490,7 @@ export type CompanyUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -494,6 +513,7 @@ export type CompanyCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  workTime?: Prisma.SortOrder
   image?: Prisma.SortOrder
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
@@ -511,6 +531,7 @@ export type CompanyMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  workTime?: Prisma.SortOrder
   image?: Prisma.SortOrder
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
@@ -528,6 +549,7 @@ export type CompanyMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  workTime?: Prisma.SortOrder
   image?: Prisma.SortOrder
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
@@ -690,6 +712,7 @@ export type CompanyCreateWithoutOwnerInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -710,6 +733,7 @@ export type CompanyUncheckedCreateWithoutOwnerInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -746,6 +770,7 @@ export type CompanyUpdateWithoutOwnerInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -766,6 +791,7 @@ export type CompanyUncheckedUpdateWithoutOwnerInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -786,6 +812,7 @@ export type CompanyCreateWithoutCategoryInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -806,6 +833,7 @@ export type CompanyUncheckedCreateWithoutCategoryInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -855,6 +883,7 @@ export type CompanyScalarWhereInput = {
   name?: Prisma.StringFilter<"Company"> | string
   slug?: Prisma.StringFilter<"Company"> | string
   description?: Prisma.StringNullableFilter<"Company"> | string | null
+  workTime?: Prisma.StringFilter<"Company"> | string
   image?: Prisma.StringNullableFilter<"Company"> | string | null
   address?: Prisma.StringFilter<"Company"> | string
   phone?: Prisma.StringNullableFilter<"Company"> | string | null
@@ -872,6 +901,7 @@ export type CompanyCreateWithoutStaffInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -892,6 +922,7 @@ export type CompanyUncheckedCreateWithoutStaffInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -928,6 +959,7 @@ export type CompanyUpdateWithoutStaffInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -948,6 +980,7 @@ export type CompanyUncheckedUpdateWithoutStaffInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -968,6 +1001,7 @@ export type CompanyCreateWithoutServicesInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -988,6 +1022,7 @@ export type CompanyUncheckedCreateWithoutServicesInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -1024,6 +1059,7 @@ export type CompanyUpdateWithoutServicesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1044,6 +1080,7 @@ export type CompanyUncheckedUpdateWithoutServicesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1064,6 +1101,7 @@ export type CompanyCreateWithoutBookingsInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -1084,6 +1122,7 @@ export type CompanyUncheckedCreateWithoutBookingsInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -1120,6 +1159,7 @@ export type CompanyUpdateWithoutBookingsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1140,6 +1180,7 @@ export type CompanyUncheckedUpdateWithoutBookingsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1160,6 +1201,7 @@ export type CompanyCreateWithoutReviewsInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -1180,6 +1222,7 @@ export type CompanyUncheckedCreateWithoutReviewsInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -1216,6 +1259,7 @@ export type CompanyUpdateWithoutReviewsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1236,6 +1280,7 @@ export type CompanyUncheckedUpdateWithoutReviewsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1256,6 +1301,7 @@ export type CompanyCreateManyCategoryInput = {
   name: string
   slug: string
   description?: string | null
+  workTime?: string
   image?: string | null
   address: string
   phone?: string | null
@@ -1272,6 +1318,7 @@ export type CompanyUpdateWithoutCategoryInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1292,6 +1339,7 @@ export type CompanyUncheckedUpdateWithoutCategoryInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1312,6 +1360,7 @@ export type CompanyUncheckedUpdateManyWithoutCategoryInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workTime?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1386,6 +1435,7 @@ export type CompanySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   name?: boolean
   slug?: boolean
   description?: boolean
+  workTime?: boolean
   image?: boolean
   address?: boolean
   phone?: boolean
@@ -1410,6 +1460,7 @@ export type CompanySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   name?: boolean
   slug?: boolean
   description?: boolean
+  workTime?: boolean
   image?: boolean
   address?: boolean
   phone?: boolean
@@ -1429,6 +1480,7 @@ export type CompanySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   name?: boolean
   slug?: boolean
   description?: boolean
+  workTime?: boolean
   image?: boolean
   address?: boolean
   phone?: boolean
@@ -1448,6 +1500,7 @@ export type CompanySelectScalar = {
   name?: boolean
   slug?: boolean
   description?: boolean
+  workTime?: boolean
   image?: boolean
   address?: boolean
   phone?: boolean
@@ -1460,7 +1513,7 @@ export type CompanySelectScalar = {
   updatedAt?: boolean
 }
 
-export type CompanyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "description" | "image" | "address" | "phone" | "telegram" | "instagram" | "vkontakte" | "ownerId" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["company"]>
+export type CompanyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "description" | "workTime" | "image" | "address" | "phone" | "telegram" | "instagram" | "vkontakte" | "ownerId" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["company"]>
 export type CompanyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   owner?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
@@ -1494,6 +1547,7 @@ export type $CompanyPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     name: string
     slug: string
     description: string | null
+    workTime: string
     image: string | null
     address: string
     phone: string | null
@@ -1937,6 +1991,7 @@ export interface CompanyFieldRefs {
   readonly name: Prisma.FieldRef<"Company", 'String'>
   readonly slug: Prisma.FieldRef<"Company", 'String'>
   readonly description: Prisma.FieldRef<"Company", 'String'>
+  readonly workTime: Prisma.FieldRef<"Company", 'String'>
   readonly image: Prisma.FieldRef<"Company", 'String'>
   readonly address: Prisma.FieldRef<"Company", 'String'>
   readonly phone: Prisma.FieldRef<"Company", 'String'>

@@ -226,7 +226,6 @@ export type StaffWhereInput = {
   services?: Prisma.ServiceListRelationFilter
   serviceStaffs?: Prisma.ServiceStaffListRelationFilter
   bookings?: Prisma.BookingListRelationFilter
-  reviews?: Prisma.ReviewListRelationFilter
   staffSchedules?: Prisma.StaffScheduleListRelationFilter
   works?: Prisma.StaffWorkListRelationFilter
 }
@@ -246,7 +245,6 @@ export type StaffOrderByWithRelationInput = {
   services?: Prisma.ServiceOrderByRelationAggregateInput
   serviceStaffs?: Prisma.ServiceStaffOrderByRelationAggregateInput
   bookings?: Prisma.BookingOrderByRelationAggregateInput
-  reviews?: Prisma.ReviewOrderByRelationAggregateInput
   staffSchedules?: Prisma.StaffScheduleOrderByRelationAggregateInput
   works?: Prisma.StaffWorkOrderByRelationAggregateInput
 }
@@ -269,7 +267,6 @@ export type StaffWhereUniqueInput = Prisma.AtLeast<{
   services?: Prisma.ServiceListRelationFilter
   serviceStaffs?: Prisma.ServiceStaffListRelationFilter
   bookings?: Prisma.BookingListRelationFilter
-  reviews?: Prisma.ReviewListRelationFilter
   staffSchedules?: Prisma.StaffScheduleListRelationFilter
   works?: Prisma.StaffWorkListRelationFilter
 }, "id">
@@ -320,7 +317,6 @@ export type StaffCreateInput = {
   services?: Prisma.ServiceCreateNestedManyWithoutStaffInput
   serviceStaffs?: Prisma.ServiceStaffCreateNestedManyWithoutStaffInput
   bookings?: Prisma.BookingCreateNestedManyWithoutStaffInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutStaffInput
   staffSchedules?: Prisma.StaffScheduleCreateNestedManyWithoutStaffInput
   works?: Prisma.StaffWorkCreateNestedManyWithoutStaffInput
 }
@@ -339,7 +335,6 @@ export type StaffUncheckedCreateInput = {
   services?: Prisma.ServiceUncheckedCreateNestedManyWithoutStaffInput
   serviceStaffs?: Prisma.ServiceStaffUncheckedCreateNestedManyWithoutStaffInput
   bookings?: Prisma.BookingUncheckedCreateNestedManyWithoutStaffInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutStaffInput
   staffSchedules?: Prisma.StaffScheduleUncheckedCreateNestedManyWithoutStaffInput
   works?: Prisma.StaffWorkUncheckedCreateNestedManyWithoutStaffInput
 }
@@ -358,7 +353,6 @@ export type StaffUpdateInput = {
   services?: Prisma.ServiceUpdateManyWithoutStaffNestedInput
   serviceStaffs?: Prisma.ServiceStaffUpdateManyWithoutStaffNestedInput
   bookings?: Prisma.BookingUpdateManyWithoutStaffNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutStaffNestedInput
   staffSchedules?: Prisma.StaffScheduleUpdateManyWithoutStaffNestedInput
   works?: Prisma.StaffWorkUpdateManyWithoutStaffNestedInput
 }
@@ -377,7 +371,6 @@ export type StaffUncheckedUpdateInput = {
   services?: Prisma.ServiceUncheckedUpdateManyWithoutStaffNestedInput
   serviceStaffs?: Prisma.ServiceStaffUncheckedUpdateManyWithoutStaffNestedInput
   bookings?: Prisma.BookingUncheckedUpdateManyWithoutStaffNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutStaffNestedInput
   staffSchedules?: Prisma.StaffScheduleUncheckedUpdateManyWithoutStaffNestedInput
   works?: Prisma.StaffWorkUncheckedUpdateManyWithoutStaffNestedInput
 }
@@ -610,20 +603,6 @@ export type StaffUpdateOneRequiredWithoutBookingsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.StaffUpdateToOneWithWhereWithoutBookingsInput, Prisma.StaffUpdateWithoutBookingsInput>, Prisma.StaffUncheckedUpdateWithoutBookingsInput>
 }
 
-export type StaffCreateNestedOneWithoutReviewsInput = {
-  create?: Prisma.XOR<Prisma.StaffCreateWithoutReviewsInput, Prisma.StaffUncheckedCreateWithoutReviewsInput>
-  connectOrCreate?: Prisma.StaffCreateOrConnectWithoutReviewsInput
-  connect?: Prisma.StaffWhereUniqueInput
-}
-
-export type StaffUpdateOneRequiredWithoutReviewsNestedInput = {
-  create?: Prisma.XOR<Prisma.StaffCreateWithoutReviewsInput, Prisma.StaffUncheckedCreateWithoutReviewsInput>
-  connectOrCreate?: Prisma.StaffCreateOrConnectWithoutReviewsInput
-  upsert?: Prisma.StaffUpsertWithoutReviewsInput
-  connect?: Prisma.StaffWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.StaffUpdateToOneWithWhereWithoutReviewsInput, Prisma.StaffUpdateWithoutReviewsInput>, Prisma.StaffUncheckedUpdateWithoutReviewsInput>
-}
-
 export type StaffCreateWithoutCompanyInput = {
   id?: string
   name: string
@@ -637,7 +616,6 @@ export type StaffCreateWithoutCompanyInput = {
   services?: Prisma.ServiceCreateNestedManyWithoutStaffInput
   serviceStaffs?: Prisma.ServiceStaffCreateNestedManyWithoutStaffInput
   bookings?: Prisma.BookingCreateNestedManyWithoutStaffInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutStaffInput
   staffSchedules?: Prisma.StaffScheduleCreateNestedManyWithoutStaffInput
   works?: Prisma.StaffWorkCreateNestedManyWithoutStaffInput
 }
@@ -655,7 +633,6 @@ export type StaffUncheckedCreateWithoutCompanyInput = {
   services?: Prisma.ServiceUncheckedCreateNestedManyWithoutStaffInput
   serviceStaffs?: Prisma.ServiceStaffUncheckedCreateNestedManyWithoutStaffInput
   bookings?: Prisma.BookingUncheckedCreateNestedManyWithoutStaffInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutStaffInput
   staffSchedules?: Prisma.StaffScheduleUncheckedCreateNestedManyWithoutStaffInput
   works?: Prisma.StaffWorkUncheckedCreateNestedManyWithoutStaffInput
 }
@@ -716,7 +693,6 @@ export type StaffCreateWithoutWorksInput = {
   services?: Prisma.ServiceCreateNestedManyWithoutStaffInput
   serviceStaffs?: Prisma.ServiceStaffCreateNestedManyWithoutStaffInput
   bookings?: Prisma.BookingCreateNestedManyWithoutStaffInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutStaffInput
   staffSchedules?: Prisma.StaffScheduleCreateNestedManyWithoutStaffInput
 }
 
@@ -734,7 +710,6 @@ export type StaffUncheckedCreateWithoutWorksInput = {
   services?: Prisma.ServiceUncheckedCreateNestedManyWithoutStaffInput
   serviceStaffs?: Prisma.ServiceStaffUncheckedCreateNestedManyWithoutStaffInput
   bookings?: Prisma.BookingUncheckedCreateNestedManyWithoutStaffInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutStaffInput
   staffSchedules?: Prisma.StaffScheduleUncheckedCreateNestedManyWithoutStaffInput
 }
 
@@ -768,7 +743,6 @@ export type StaffUpdateWithoutWorksInput = {
   services?: Prisma.ServiceUpdateManyWithoutStaffNestedInput
   serviceStaffs?: Prisma.ServiceStaffUpdateManyWithoutStaffNestedInput
   bookings?: Prisma.BookingUpdateManyWithoutStaffNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutStaffNestedInput
   staffSchedules?: Prisma.StaffScheduleUpdateManyWithoutStaffNestedInput
 }
 
@@ -786,7 +760,6 @@ export type StaffUncheckedUpdateWithoutWorksInput = {
   services?: Prisma.ServiceUncheckedUpdateManyWithoutStaffNestedInput
   serviceStaffs?: Prisma.ServiceStaffUncheckedUpdateManyWithoutStaffNestedInput
   bookings?: Prisma.BookingUncheckedUpdateManyWithoutStaffNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutStaffNestedInput
   staffSchedules?: Prisma.StaffScheduleUncheckedUpdateManyWithoutStaffNestedInput
 }
 
@@ -804,7 +777,6 @@ export type StaffCreateWithoutStaffSchedulesInput = {
   services?: Prisma.ServiceCreateNestedManyWithoutStaffInput
   serviceStaffs?: Prisma.ServiceStaffCreateNestedManyWithoutStaffInput
   bookings?: Prisma.BookingCreateNestedManyWithoutStaffInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutStaffInput
   works?: Prisma.StaffWorkCreateNestedManyWithoutStaffInput
 }
 
@@ -822,7 +794,6 @@ export type StaffUncheckedCreateWithoutStaffSchedulesInput = {
   services?: Prisma.ServiceUncheckedCreateNestedManyWithoutStaffInput
   serviceStaffs?: Prisma.ServiceStaffUncheckedCreateNestedManyWithoutStaffInput
   bookings?: Prisma.BookingUncheckedCreateNestedManyWithoutStaffInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutStaffInput
   works?: Prisma.StaffWorkUncheckedCreateNestedManyWithoutStaffInput
 }
 
@@ -856,7 +827,6 @@ export type StaffUpdateWithoutStaffSchedulesInput = {
   services?: Prisma.ServiceUpdateManyWithoutStaffNestedInput
   serviceStaffs?: Prisma.ServiceStaffUpdateManyWithoutStaffNestedInput
   bookings?: Prisma.BookingUpdateManyWithoutStaffNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutStaffNestedInput
   works?: Prisma.StaffWorkUpdateManyWithoutStaffNestedInput
 }
 
@@ -874,7 +844,6 @@ export type StaffUncheckedUpdateWithoutStaffSchedulesInput = {
   services?: Prisma.ServiceUncheckedUpdateManyWithoutStaffNestedInput
   serviceStaffs?: Prisma.ServiceStaffUncheckedUpdateManyWithoutStaffNestedInput
   bookings?: Prisma.BookingUncheckedUpdateManyWithoutStaffNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutStaffNestedInput
   works?: Prisma.StaffWorkUncheckedUpdateManyWithoutStaffNestedInput
 }
 
@@ -891,7 +860,6 @@ export type StaffCreateWithoutServicesInput = {
   company: Prisma.CompanyCreateNestedOneWithoutStaffInput
   serviceStaffs?: Prisma.ServiceStaffCreateNestedManyWithoutStaffInput
   bookings?: Prisma.BookingCreateNestedManyWithoutStaffInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutStaffInput
   staffSchedules?: Prisma.StaffScheduleCreateNestedManyWithoutStaffInput
   works?: Prisma.StaffWorkCreateNestedManyWithoutStaffInput
 }
@@ -909,7 +877,6 @@ export type StaffUncheckedCreateWithoutServicesInput = {
   updatedAt?: Date | string
   serviceStaffs?: Prisma.ServiceStaffUncheckedCreateNestedManyWithoutStaffInput
   bookings?: Prisma.BookingUncheckedCreateNestedManyWithoutStaffInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutStaffInput
   staffSchedules?: Prisma.StaffScheduleUncheckedCreateNestedManyWithoutStaffInput
   works?: Prisma.StaffWorkUncheckedCreateNestedManyWithoutStaffInput
 }
@@ -948,7 +915,6 @@ export type StaffCreateWithoutServiceStaffsInput = {
   company: Prisma.CompanyCreateNestedOneWithoutStaffInput
   services?: Prisma.ServiceCreateNestedManyWithoutStaffInput
   bookings?: Prisma.BookingCreateNestedManyWithoutStaffInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutStaffInput
   staffSchedules?: Prisma.StaffScheduleCreateNestedManyWithoutStaffInput
   works?: Prisma.StaffWorkCreateNestedManyWithoutStaffInput
 }
@@ -966,7 +932,6 @@ export type StaffUncheckedCreateWithoutServiceStaffsInput = {
   updatedAt?: Date | string
   services?: Prisma.ServiceUncheckedCreateNestedManyWithoutStaffInput
   bookings?: Prisma.BookingUncheckedCreateNestedManyWithoutStaffInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutStaffInput
   staffSchedules?: Prisma.StaffScheduleUncheckedCreateNestedManyWithoutStaffInput
   works?: Prisma.StaffWorkUncheckedCreateNestedManyWithoutStaffInput
 }
@@ -1000,7 +965,6 @@ export type StaffUpdateWithoutServiceStaffsInput = {
   company?: Prisma.CompanyUpdateOneRequiredWithoutStaffNestedInput
   services?: Prisma.ServiceUpdateManyWithoutStaffNestedInput
   bookings?: Prisma.BookingUpdateManyWithoutStaffNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutStaffNestedInput
   staffSchedules?: Prisma.StaffScheduleUpdateManyWithoutStaffNestedInput
   works?: Prisma.StaffWorkUpdateManyWithoutStaffNestedInput
 }
@@ -1018,7 +982,6 @@ export type StaffUncheckedUpdateWithoutServiceStaffsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   services?: Prisma.ServiceUncheckedUpdateManyWithoutStaffNestedInput
   bookings?: Prisma.BookingUncheckedUpdateManyWithoutStaffNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutStaffNestedInput
   staffSchedules?: Prisma.StaffScheduleUncheckedUpdateManyWithoutStaffNestedInput
   works?: Prisma.StaffWorkUncheckedUpdateManyWithoutStaffNestedInput
 }
@@ -1036,7 +999,6 @@ export type StaffCreateWithoutBookingsInput = {
   company: Prisma.CompanyCreateNestedOneWithoutStaffInput
   services?: Prisma.ServiceCreateNestedManyWithoutStaffInput
   serviceStaffs?: Prisma.ServiceStaffCreateNestedManyWithoutStaffInput
-  reviews?: Prisma.ReviewCreateNestedManyWithoutStaffInput
   staffSchedules?: Prisma.StaffScheduleCreateNestedManyWithoutStaffInput
   works?: Prisma.StaffWorkCreateNestedManyWithoutStaffInput
 }
@@ -1054,7 +1016,6 @@ export type StaffUncheckedCreateWithoutBookingsInput = {
   updatedAt?: Date | string
   services?: Prisma.ServiceUncheckedCreateNestedManyWithoutStaffInput
   serviceStaffs?: Prisma.ServiceStaffUncheckedCreateNestedManyWithoutStaffInput
-  reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutStaffInput
   staffSchedules?: Prisma.StaffScheduleUncheckedCreateNestedManyWithoutStaffInput
   works?: Prisma.StaffWorkUncheckedCreateNestedManyWithoutStaffInput
 }
@@ -1088,7 +1049,6 @@ export type StaffUpdateWithoutBookingsInput = {
   company?: Prisma.CompanyUpdateOneRequiredWithoutStaffNestedInput
   services?: Prisma.ServiceUpdateManyWithoutStaffNestedInput
   serviceStaffs?: Prisma.ServiceStaffUpdateManyWithoutStaffNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutStaffNestedInput
   staffSchedules?: Prisma.StaffScheduleUpdateManyWithoutStaffNestedInput
   works?: Prisma.StaffWorkUpdateManyWithoutStaffNestedInput
 }
@@ -1106,95 +1066,6 @@ export type StaffUncheckedUpdateWithoutBookingsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   services?: Prisma.ServiceUncheckedUpdateManyWithoutStaffNestedInput
   serviceStaffs?: Prisma.ServiceStaffUncheckedUpdateManyWithoutStaffNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutStaffNestedInput
-  staffSchedules?: Prisma.StaffScheduleUncheckedUpdateManyWithoutStaffNestedInput
-  works?: Prisma.StaffWorkUncheckedUpdateManyWithoutStaffNestedInput
-}
-
-export type StaffCreateWithoutReviewsInput = {
-  id?: string
-  name: string
-  occupation: string
-  description?: string | null
-  image?: string | null
-  startTime?: string
-  endTime?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  company: Prisma.CompanyCreateNestedOneWithoutStaffInput
-  services?: Prisma.ServiceCreateNestedManyWithoutStaffInput
-  serviceStaffs?: Prisma.ServiceStaffCreateNestedManyWithoutStaffInput
-  bookings?: Prisma.BookingCreateNestedManyWithoutStaffInput
-  staffSchedules?: Prisma.StaffScheduleCreateNestedManyWithoutStaffInput
-  works?: Prisma.StaffWorkCreateNestedManyWithoutStaffInput
-}
-
-export type StaffUncheckedCreateWithoutReviewsInput = {
-  id?: string
-  name: string
-  occupation: string
-  description?: string | null
-  image?: string | null
-  startTime?: string
-  endTime?: string
-  companyId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  services?: Prisma.ServiceUncheckedCreateNestedManyWithoutStaffInput
-  serviceStaffs?: Prisma.ServiceStaffUncheckedCreateNestedManyWithoutStaffInput
-  bookings?: Prisma.BookingUncheckedCreateNestedManyWithoutStaffInput
-  staffSchedules?: Prisma.StaffScheduleUncheckedCreateNestedManyWithoutStaffInput
-  works?: Prisma.StaffWorkUncheckedCreateNestedManyWithoutStaffInput
-}
-
-export type StaffCreateOrConnectWithoutReviewsInput = {
-  where: Prisma.StaffWhereUniqueInput
-  create: Prisma.XOR<Prisma.StaffCreateWithoutReviewsInput, Prisma.StaffUncheckedCreateWithoutReviewsInput>
-}
-
-export type StaffUpsertWithoutReviewsInput = {
-  update: Prisma.XOR<Prisma.StaffUpdateWithoutReviewsInput, Prisma.StaffUncheckedUpdateWithoutReviewsInput>
-  create: Prisma.XOR<Prisma.StaffCreateWithoutReviewsInput, Prisma.StaffUncheckedCreateWithoutReviewsInput>
-  where?: Prisma.StaffWhereInput
-}
-
-export type StaffUpdateToOneWithWhereWithoutReviewsInput = {
-  where?: Prisma.StaffWhereInput
-  data: Prisma.XOR<Prisma.StaffUpdateWithoutReviewsInput, Prisma.StaffUncheckedUpdateWithoutReviewsInput>
-}
-
-export type StaffUpdateWithoutReviewsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  occupation?: Prisma.StringFieldUpdateOperationsInput | string
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  startTime?: Prisma.StringFieldUpdateOperationsInput | string
-  endTime?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  company?: Prisma.CompanyUpdateOneRequiredWithoutStaffNestedInput
-  services?: Prisma.ServiceUpdateManyWithoutStaffNestedInput
-  serviceStaffs?: Prisma.ServiceStaffUpdateManyWithoutStaffNestedInput
-  bookings?: Prisma.BookingUpdateManyWithoutStaffNestedInput
-  staffSchedules?: Prisma.StaffScheduleUpdateManyWithoutStaffNestedInput
-  works?: Prisma.StaffWorkUpdateManyWithoutStaffNestedInput
-}
-
-export type StaffUncheckedUpdateWithoutReviewsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  occupation?: Prisma.StringFieldUpdateOperationsInput | string
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  startTime?: Prisma.StringFieldUpdateOperationsInput | string
-  endTime?: Prisma.StringFieldUpdateOperationsInput | string
-  companyId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  services?: Prisma.ServiceUncheckedUpdateManyWithoutStaffNestedInput
-  serviceStaffs?: Prisma.ServiceStaffUncheckedUpdateManyWithoutStaffNestedInput
-  bookings?: Prisma.BookingUncheckedUpdateManyWithoutStaffNestedInput
   staffSchedules?: Prisma.StaffScheduleUncheckedUpdateManyWithoutStaffNestedInput
   works?: Prisma.StaffWorkUncheckedUpdateManyWithoutStaffNestedInput
 }
@@ -1224,7 +1095,6 @@ export type StaffUpdateWithoutCompanyInput = {
   services?: Prisma.ServiceUpdateManyWithoutStaffNestedInput
   serviceStaffs?: Prisma.ServiceStaffUpdateManyWithoutStaffNestedInput
   bookings?: Prisma.BookingUpdateManyWithoutStaffNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutStaffNestedInput
   staffSchedules?: Prisma.StaffScheduleUpdateManyWithoutStaffNestedInput
   works?: Prisma.StaffWorkUpdateManyWithoutStaffNestedInput
 }
@@ -1242,7 +1112,6 @@ export type StaffUncheckedUpdateWithoutCompanyInput = {
   services?: Prisma.ServiceUncheckedUpdateManyWithoutStaffNestedInput
   serviceStaffs?: Prisma.ServiceStaffUncheckedUpdateManyWithoutStaffNestedInput
   bookings?: Prisma.BookingUncheckedUpdateManyWithoutStaffNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutStaffNestedInput
   staffSchedules?: Prisma.StaffScheduleUncheckedUpdateManyWithoutStaffNestedInput
   works?: Prisma.StaffWorkUncheckedUpdateManyWithoutStaffNestedInput
 }
@@ -1272,7 +1141,6 @@ export type StaffUpdateWithoutServicesInput = {
   company?: Prisma.CompanyUpdateOneRequiredWithoutStaffNestedInput
   serviceStaffs?: Prisma.ServiceStaffUpdateManyWithoutStaffNestedInput
   bookings?: Prisma.BookingUpdateManyWithoutStaffNestedInput
-  reviews?: Prisma.ReviewUpdateManyWithoutStaffNestedInput
   staffSchedules?: Prisma.StaffScheduleUpdateManyWithoutStaffNestedInput
   works?: Prisma.StaffWorkUpdateManyWithoutStaffNestedInput
 }
@@ -1290,7 +1158,6 @@ export type StaffUncheckedUpdateWithoutServicesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   serviceStaffs?: Prisma.ServiceStaffUncheckedUpdateManyWithoutStaffNestedInput
   bookings?: Prisma.BookingUncheckedUpdateManyWithoutStaffNestedInput
-  reviews?: Prisma.ReviewUncheckedUpdateManyWithoutStaffNestedInput
   staffSchedules?: Prisma.StaffScheduleUncheckedUpdateManyWithoutStaffNestedInput
   works?: Prisma.StaffWorkUncheckedUpdateManyWithoutStaffNestedInput
 }
@@ -1317,7 +1184,6 @@ export type StaffCountOutputType = {
   services: number
   serviceStaffs: number
   bookings: number
-  reviews: number
   staffSchedules: number
   works: number
 }
@@ -1326,7 +1192,6 @@ export type StaffCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.
   services?: boolean | StaffCountOutputTypeCountServicesArgs
   serviceStaffs?: boolean | StaffCountOutputTypeCountServiceStaffsArgs
   bookings?: boolean | StaffCountOutputTypeCountBookingsArgs
-  reviews?: boolean | StaffCountOutputTypeCountReviewsArgs
   staffSchedules?: boolean | StaffCountOutputTypeCountStaffSchedulesArgs
   works?: boolean | StaffCountOutputTypeCountWorksArgs
 }
@@ -1365,13 +1230,6 @@ export type StaffCountOutputTypeCountBookingsArgs<ExtArgs extends runtime.Types.
 /**
  * StaffCountOutputType without action
  */
-export type StaffCountOutputTypeCountReviewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ReviewWhereInput
-}
-
-/**
- * StaffCountOutputType without action
- */
 export type StaffCountOutputTypeCountStaffSchedulesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.StaffScheduleWhereInput
 }
@@ -1399,7 +1257,6 @@ export type StaffSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   services?: boolean | Prisma.Staff$servicesArgs<ExtArgs>
   serviceStaffs?: boolean | Prisma.Staff$serviceStaffsArgs<ExtArgs>
   bookings?: boolean | Prisma.Staff$bookingsArgs<ExtArgs>
-  reviews?: boolean | Prisma.Staff$reviewsArgs<ExtArgs>
   staffSchedules?: boolean | Prisma.Staff$staffSchedulesArgs<ExtArgs>
   works?: boolean | Prisma.Staff$worksArgs<ExtArgs>
   _count?: boolean | Prisma.StaffCountOutputTypeDefaultArgs<ExtArgs>
@@ -1452,7 +1309,6 @@ export type StaffInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   services?: boolean | Prisma.Staff$servicesArgs<ExtArgs>
   serviceStaffs?: boolean | Prisma.Staff$serviceStaffsArgs<ExtArgs>
   bookings?: boolean | Prisma.Staff$bookingsArgs<ExtArgs>
-  reviews?: boolean | Prisma.Staff$reviewsArgs<ExtArgs>
   staffSchedules?: boolean | Prisma.Staff$staffSchedulesArgs<ExtArgs>
   works?: boolean | Prisma.Staff$worksArgs<ExtArgs>
   _count?: boolean | Prisma.StaffCountOutputTypeDefaultArgs<ExtArgs>
@@ -1471,7 +1327,6 @@ export type $StaffPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     services: Prisma.$ServicePayload<ExtArgs>[]
     serviceStaffs: Prisma.$ServiceStaffPayload<ExtArgs>[]
     bookings: Prisma.$BookingPayload<ExtArgs>[]
-    reviews: Prisma.$ReviewPayload<ExtArgs>[]
     staffSchedules: Prisma.$StaffSchedulePayload<ExtArgs>[]
     works: Prisma.$StaffWorkPayload<ExtArgs>[]
   }
@@ -1884,7 +1739,6 @@ export interface Prisma__StaffClient<T, Null = never, ExtArgs extends runtime.Ty
   services<T extends Prisma.Staff$servicesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Staff$servicesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   serviceStaffs<T extends Prisma.Staff$serviceStaffsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Staff$serviceStaffsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServiceStaffPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   bookings<T extends Prisma.Staff$bookingsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Staff$bookingsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  reviews<T extends Prisma.Staff$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Staff$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   staffSchedules<T extends Prisma.Staff$staffSchedulesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Staff$staffSchedulesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StaffSchedulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   works<T extends Prisma.Staff$worksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Staff$worksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StaffWorkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -2396,30 +2250,6 @@ export type Staff$bookingsArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   distinct?: Prisma.BookingScalarFieldEnum | Prisma.BookingScalarFieldEnum[]
-}
-
-/**
- * Staff.reviews
- */
-export type Staff$reviewsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Review
-   */
-  select?: Prisma.ReviewSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Review
-   */
-  omit?: Prisma.ReviewOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ReviewInclude<ExtArgs> | null
-  where?: Prisma.ReviewWhereInput
-  orderBy?: Prisma.ReviewOrderByWithRelationInput | Prisma.ReviewOrderByWithRelationInput[]
-  cursor?: Prisma.ReviewWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.ReviewScalarFieldEnum | Prisma.ReviewScalarFieldEnum[]
 }
 
 /**

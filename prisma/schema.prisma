@@ -39,6 +39,7 @@ model Company {
   name        String
   slug        String  @unique
   description String?
+  workTime    String @default("09:00-18:00")
   image       String?
   address     String
   phone       String?
@@ -67,9 +68,10 @@ model Company {
 model Category {
   id String @id //seed.ts
 
-  name  String
+  label String
   slug  String @unique
   image String
+  color String @default("#3B82F6")
 
   companies Company[]
 
@@ -95,7 +97,6 @@ model Staff {
   services       Service[]
   serviceStaffs  ServiceStaff[]
   bookings       Booking[]
-  reviews        Review[]
   staffSchedules StaffSchedule[]
   works          StaffWork[]
 
@@ -106,6 +107,7 @@ model Staff {
   @@map("staff")
 }
 
+//StaffWork - это фото пример работы сотрудника
 model StaffWork {
   id String @id @default(cuid())
 
@@ -222,15 +224,11 @@ model Review {
   companyId String
   company   Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
 
-  staffId String
-  staff   Staff  @relation(fields: [staffId], references: [id], onDelete: Cascade)
-
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([userId])
   @@index([companyId])
-  @@index([staffId])
   @@map("review")
 }
 

@@ -4,6 +4,7 @@ import type { FC, ReactNode } from "react";
 import { createContext } from "react";
 
 export type SelectItemType = {
+    image?: string | undefined;
     /** Unique identifier for the item. */
     id: string | number;
     /** The primary display text. */
